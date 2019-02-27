@@ -90,6 +90,54 @@ git commit -m "add src/"    // 不写文件列表，就表明将当前暂存区�
 
 
 
+查看日志
+git log
+git log --author=frank      // 查找user.name和user.email包含frank的提交信息
+git log --pretty=oneline    // 单行显示提交信息
+
+删除仓库中的文件（本地也同时删除）
+git rm haha.log
+git commit -m "del haha.log"
+
+如何你只希望删除仓库，但是保留本地，可以先将该文件重命名，然后git rm，然后将该文件再改为原名加入.gitignore列表！
+
+重命名仓库/本地文件
+先改本地文件名
+执行一次git status看看变化
+然后git add .
+执行一次git status看看变化
+最后git commit -m ""
+
+比较暂存区和工作区
+git diff GitReadme.txt
+
+比较暂存区和仓库区
+git diff --cached GitReadme.txt
+
+比较工作区和仓库区
+git diff head GitReadme.txt
+
+-----------------------------------------------------------------
+
+回溯版本
+git reset --hard c46907     // 6位提交标识符
+
+注意：
+一旦回溯，那么git log只能查看你回溯点之前的提交信息，不能查看回溯自身信息！
+如果要查看整个操作历史（包括历次回溯信息），使用git reflog！
+
+-----------------------------------------------------------------
+
+克隆仓库
+先进入仓库
+再git clone . ../Git2
+
+注意：只会复制当前仓库中托管的内容（.gitignore里的文件和不在仓库中的文件是不会被克隆的）
+
+
+
+
+
 
 
 
